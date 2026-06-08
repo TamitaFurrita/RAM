@@ -12,4 +12,15 @@ map HUB01 "Military Prison"
 	Sky1 = "D1SKY1"
 
 	LevelNum = 101
+	NoIntermission
+}
+
+map HUB02 "author = $WS_AUTHOR"
+{
+	label = "UF"
+	music = "D_UF1M1"
+	Sky1 = "D1SKY1"
+
+	LevelNum = 102
+	NoIntermission
 }

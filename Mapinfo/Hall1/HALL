@@ -12,4 +12,5 @@ map HALL01 "U1M9"
 	Sky1 = "D1SKY1"
 	
 	LevelNum = 501
+	NoIntermission
 }

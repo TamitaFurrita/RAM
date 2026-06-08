@@ -1,1 +1,4 @@
 **.dbs
+*.backup*
+jimmytex.wad
+*autosave*

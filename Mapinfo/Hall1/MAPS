@@ -13,3 +13,12 @@ map U1M1 "Hangar"
 
 	LevelNum = 1
 }
+
+map UF1M1 "Author = $WS_AU_ROMERO"
+{
+	label = "UF1M1"
+	music = "D_UF1M1"
+	Sky1 = "D1SKY1"
+
+	LevelNum = 11
+}
