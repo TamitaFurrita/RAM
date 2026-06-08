@@ -1,0 +1,15 @@
+DefaultMap
+{
+	NoJump
+	NoCrouch
+	Cluster = 1
+}
+
+map HUB01 "Military Prison"
+{
+	label = "U1M9"
+	music = "D_U1M9"
+	Sky1 = "D1SKY1"
+
+	LevelNum = 101
+}

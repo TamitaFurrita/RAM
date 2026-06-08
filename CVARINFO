@@ -1,0 +1,2 @@
+noarchive server cheat float dynDiff = 1.0;
+server bool Bunny_Debug = false;

@@ -1,0 +1,33 @@
+GameInfo 
+{
+	AddEventHandlers = "B33Handler"
+	StatusBarClass = "CustomStatusBar"
+	NoMergePickupMsg = False
+}
+
+DoomEdNums
+{
+	5110 = ZombieSpot
+	5111 = ImpSpot
+	5112 = AmmoSpot
+	5113 = ShellSpot
+	5114 = DoomBrute
+	5115 = PinkySpot
+}
+
+Cluster 1
+{
+	Hub
+	AllowIntermission
+}
+
+DefaultMap
+{
+	NoJump
+	NoCrouch
+	Cluster = 1
+}
+
+include "Mapinfo/Hall1/MAPS"
+include "Mapinfo/Hall1/HUBS"
+include "Mapinfo/Hall1/HALL"

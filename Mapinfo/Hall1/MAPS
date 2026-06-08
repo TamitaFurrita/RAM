@@ -1,0 +1,15 @@
+DefaultMap
+{
+	NoJump
+	NoCrouch
+	Cluster = 1
+}
+
+map U1M1 "Hangar"
+{
+	label = "U1M1"
+	music = "D_U1M1"
+	Sky1 = "D1SKY1"
+
+	LevelNum = 1
+}

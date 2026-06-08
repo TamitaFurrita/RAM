@@ -1,0 +1,37 @@
+class CustomStatusBar : DoomStatusBar
+{
+	HUDFont SmolFont;
+	
+	override void Init()
+	{
+		Super.Init();
+		SmolFont = HUDFont.Create(smallfont);
+	}
+	
+	override void Draw (int state, double TicFrac)
+	{
+		float TextScaling = hud_aspectscale ? 0.83334 : 1.0;
+		
+		if(automapactive) {
+			SetSize(0, 320, 200);
+			DrawString(SmolFont, "\cj"..Level.info.MapLabel..": \cg"..Level.Levelname, (160, 187), DI_TEXT_ALIGN_CENTER, scale: (1, TextScaling));
+			DrawString(SmolFont, "Enemies: "..level.total_monsters - level.killed_monsters, (160, 194), DI_TEXT_ALIGN_CENTER, scale: (1, TextScaling));
+			return;
+		}
+		
+		Super.Draw (state, TicFrac);
+
+		if (state == HUD_StatusBar && !automapactive)
+		{
+			SetSize(32, 320, 200);
+			BeginStatusBar();
+			DrawMainBar (TicFrac);
+		}
+		else if (state == HUD_Fullscreen && !automapactive)
+		{
+			SetSize(32, 320, 200);
+			BeginHUD();
+			DrawFullScreenStuff ();
+		}
+	}
+}
