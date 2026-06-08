@@ -5,7 +5,7 @@ DefaultMap
 	Cluster = 1
 }
 
-map U1M1 "Hangar"
+map U1M1 "Home Base"
 {
 	label = "U1M1"
 	music = "D_U1M1"
@@ -14,7 +14,16 @@ map U1M1 "Hangar"
 	LevelNum = 1
 }
 
-map UF1M1 "Author = $WS_AU_ROMERO"
+map U1M5 "Phobos Plant"
+{
+	label = "U1M5"
+	music = "D_U1M5"
+	Sky1 = "D1SKY1"
+	
+	LevelNum = 2
+}
+
+map UF1M1 "author = $WS_AU_ROMERO"
 {
 	label = "UF1M1"
 	music = "D_UF1M1"

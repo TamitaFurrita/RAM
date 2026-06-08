@@ -21,11 +21,11 @@ class B33Handler : EventHandler
 		};
 		
 		string shells[2] = {
-			"Shell", "ShellBox"
+			"ShellBox", "Shell"
 		};
 		
 		string ammoes[2] = {
-			"Clip", "ClipBox"
+			"ClipBox", "Clip"
 		};
 		
 		let pmo = players[consoleplayer].mo;
@@ -68,7 +68,7 @@ class B33Handler : EventHandler
 		
 		while (mo = SpecialSpot(SpotPoker.Next()))
 		{
-			if(!(mo.CheckIfInTargetLOS() && mo.CheckIfTargetInLOS()))
+			if(mo.target && mo.target.Player && !(mo.CheckIfInTargetLOS() && mo.CheckIfTargetInLOS()))
 			{
 				if(mo.GetClass() == "ZombieSpot" && random(0, 7000) == 1) {
 					mo.A_SpawnItemEx(zombies[RandomMemberOfArray(3)], flags:SXF_ISMASTER);
