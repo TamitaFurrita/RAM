@@ -1,0 +1,6 @@
+HardwareShader HELLSKY
+{
+	Name "PerlinTexture"
+	Shader "Shaders/Doot.fp" 330
+	Speed 0.3
+}

@@ -2,7 +2,20 @@ GameInfo
 {
 	AddEventHandlers = "B33Handler"
 	StatusBarClass = "CustomStatusBar"
+	StatScreen_Single = "BunnyStatusScreen"
 	NoMergePickupMsg = False
+	
+	MenuFontColor_Title = "White"
+	MenuFontColor_Label = "Black"
+	MenuFontColor_Action = "Black"
+	MenuFontColor_Highlight = "White"
+	MenuFontColor_Selection = "White"
+	MenuFontColor_Header = "White"
+	MenuFontColor_Value = "White"
+	
+	QuitMessages = "\cJRedistribution of this binary will have you persecuted to the full extent of the law."
+	CreditPage = "TITLEPIC"
+	AdvisoryTime = 0
 }
 
 DoomEdNums
@@ -13,6 +26,8 @@ DoomEdNums
 	5113 = ShellSpot
 	5114 = DoomBrute
 	5115 = PinkySpot
+	5116 = CellSpot
+	5117 = HealthSpot
 }
 
 Cluster 1
@@ -26,6 +41,19 @@ DefaultMap
 	NoJump
 	NoCrouch
 	Cluster = 1
+}
+
+clearepisodes
+clearskills
+
+skill RAM
+{
+	SpawnFilter = 3
+}
+
+episode U1M1
+{
+	name = "RAM"
 }
 
 include "Mapinfo/Hall1/MAPS"

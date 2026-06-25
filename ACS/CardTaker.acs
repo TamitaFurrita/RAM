@@ -1,0 +1,54 @@
+#library "CardTakerLib"
+#include "zcommon.acs"
+
+str Keys[6] = { "RedCard", "YellowCard", "BlueCard", "RedSkull", "YellowSkull", "BlueSkull" };
+
+script "KeyFlagFunction" (void)
+{
+	int KeysFound = 0;
+	
+	for(int i = 0; i < 6; i++) if(ThingCountName(Keys[i], 0) > 0) KeysFound |= 1 << i;
+	
+	SetResultValue(KeysFound);
+}
+
+int InitialKeyFlags;
+int CurrentKeyFlags;
+int PickedUpFlags;
+
+script "Lunch Money Taker" (void)
+{
+	for(int i = 0; i < 6; i++) TakeInventory(Keys[i],1);
+}
+
+script "First Enter" OPEN
+{
+	ACS_NamedExecute("Lunch Money Taker", 0);
+	
+	InitialKeyFlags = ACS_NamedExecuteWithResult("KeyFlagFunction");
+	Delay(1);
+	if(GetCVAR("BunnyDebug")) Print(s:"Initial: ", i:InitialKeyFlags);
+}
+
+script "Upon Return" REOPEN
+{
+	ACS_NamedExecute("Lunch Money Taker", 0);
+	
+	CurrentKeyFlags = ACS_NamedExecuteWithResult("KeyFlagFunction");
+	Delay(1);
+	
+	PickedUpFlags = InitialKeyFlags & ~CurrentKeyFlags;
+	
+	for (int i = 0; i < 6; i++)
+	{
+		if (PickedUpFlags & (1 << i))
+			GiveInventory(Keys[i], 1);
+	}
+	
+	if(GetCVAR("BunnyDebug")) ACS_NamedExecute("CardDebug", 0);
+}
+
+script "CardDebug" (void)
+{
+	Print(s:"Current: ", i:CurrentKeyFlags, s:", Picked up: ", i:PickedUpFlags, s:", Initial: ", i:InitialKeyFlags);
+}

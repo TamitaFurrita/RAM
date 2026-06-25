@@ -27,6 +27,14 @@ class B33Handler : EventHandler
 		string ammoes[2] = {
 			"ClipBox", "Clip"
 		};
+
+		string celles[2] = {
+			"CellPack", "Cell"
+		};
+		
+		string healthes[3] = {
+			"Medikit", "Stimpack", "HealthBonus"
+		};
 		
 		let pmo = players[consoleplayer].mo;
 		
@@ -61,12 +69,12 @@ class B33Handler : EventHandler
 				) / 2.0
 			);
 		
-		if(Bunny_Debug) console.Printf(""..dynDiff);
+		if(Bunny_Debug) console.Printf("dynDiff: "..dynDiff);
 		
-		ThinkerIterator SpotPoker = ThinkerIterator.Create("SpecialSpot");
+		ThinkerIterator SpotPoker = ThinkerIterator.Create("MapSpot");
 		Actor mo;
 		
-		while (mo = SpecialSpot(SpotPoker.Next()))
+		while (mo = MapSpot(SpotPoker.Next()))
 		{
 			if(mo.target && mo.target.Player && !(mo.CheckIfInTargetLOS() && mo.CheckIfTargetInLOS()))
 			{
@@ -85,14 +93,27 @@ class B33Handler : EventHandler
 					if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("TeleportFog");
 					}
 				
-				if(mo.GetClass() == "ShellSpot" && random(0, 7000) == 1) {
-					mo.A_SpawnItemEx(shells[RandomMemberOfArray(2)], flags:SXF_ISMASTER);
-					if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("TeleportFog");
-					}
-				
-				if(mo.GetClass() == "AmmoSpot" && random(0, 7000) == 1) {
-					mo.A_SpawnItemEx(ammoes[RandomMemberOfArray(2)], flags:SXF_ISMASTER);
-					if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("TeleportFog");
+				if(!(mo.master))
+					{
+					if(mo.GetClass() == "ShellSpot" && (hasShotgun || hasSSG) && random(0, 7000) == 1) {
+						mo.A_SpawnItemEx(shells[RandomMemberOfArray(2)], flags:SXF_ISMASTER);
+						if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("ItemFog");
+						}
+					
+					if(mo.GetClass() == "AmmoSpot" && random(0, 7000) == 1) {
+						mo.A_SpawnItemEx(ammoes[RandomMemberOfArray(2)], flags:SXF_ISMASTER);
+						if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("ItemFog");
+						}
+
+					if(mo.GetClass() == "CellSpot" && (hasPlasmaRifle || hasBFG) && random(0, 7000) == 1) {
+						mo.A_SpawnItemEx(celles[RandomMemberOfArray(2)], flags:SXF_ISMASTER);
+						if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("ItemFog");
+						}
+					
+					if(mo.GetClass() == "HealthSpot" && random(0, 7000) == 1) {
+						mo.A_SpawnItemEx(healthes[RandomMemberOfArray(3)], flags:SXF_ISMASTER);
+						if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("ItemFog");
+						}
 					}
 			}
 		}

@@ -23,6 +23,25 @@ map U1M5 "Phobos Plant"
 	LevelNum = 2
 }
 
+map U1M8 "Anomaly on Phobos"
+{
+	label = "U1M8"
+	music = "D_U1M8"
+	Sky1 = "D1SKY1"
+	NoIntermission
+	
+	LevelNum = 3
+}
+
+map MAPU1 "Hell on Earth"
+{
+	label = "DOOM 2"
+	music = "D_MAPU1"
+	Sky1 = "HELLSKY"
+
+	LevelNum = 4
+}
+
 map UF1M1 "author = $WS_AU_ROMERO"
 {
 	label = "UF1M1"
@@ -30,4 +49,22 @@ map UF1M1 "author = $WS_AU_ROMERO"
 	Sky1 = "D1SKY1"
 
 	LevelNum = 11
+}
+
+map CARDTEST ""
+{
+	label = "CARDTEST"
+	music = "D_RUNNIN"
+	Sky1 = "Sky1"
+	
+	LevelNum = 12
+}
+
+map DEMOMAP "Laboratory"
+{
+	label = "E1M1"
+	music = "D_DEMO"
+	Sky1 = "Sky1"
+	
+	LevelNum = 13
 }

@@ -1,8 +1,8 @@
-class ZombieSpot : SpecialSpot
+class ZombieSpot : MapSpot
 {
 	Default
 	{
-	+INVISIBLE
+	+INVISIBLE 
 	//$Category "Monsters/Spawners"
 	//$Sprite "POSSA1"
 	//$Color 14
@@ -18,14 +18,14 @@ class ZombieSpot : SpecialSpot
 	}
 }
 
-class ImpSpot : SpecialSpot
+class ImpSpot : MapSpot
 {
-  Default
-  {
-  +INVISIBLE
-  //$Category "Monsters/Spawners"
-  //$Sprite "TROOA1"
-  //$Color 14
+	Default
+	{
+	+INVISIBLE 
+	//$Category "Monsters/Spawners"
+	//$Sprite "TROOA1"
+	//$Color 14
 	}
 	States
 	{
@@ -38,11 +38,11 @@ class ImpSpot : SpecialSpot
 	}
 }
 
-class PinkySpot : SpecialSpot
+class PinkySpot : MapSpot
 {
 	Default
 	{
-	+INVISIBLE
+	+INVISIBLE 
 	//$Category "Monsters/Spawners"
 	//$Sprite "SARGA1"
 	//$Color 14
@@ -58,14 +58,14 @@ class PinkySpot : SpecialSpot
 	}
 }
 
-class ShellSpot : SpecialSpot
+class ShellSpot : MapSpot
 {
-  Default
-  {
-  +INVISIBLE
-  //$Category "Ammunition/Spawners"
-  //$Sprite "SBOXA0"
-  //$Color 14
+	Default
+	{
+	+INVISIBLE 
+	//$Category "Ammunition/Spawners"
+	//$Sprite "SBOXA0"
+	//$Color 14
 	}
 	States
 	{
@@ -75,14 +75,48 @@ class ShellSpot : SpecialSpot
 	}
 }
 
-class AmmoSpot : SpecialSpot
+class AmmoSpot : MapSpot
 {
-  Default
-  {
-  +INVISIBLE
-  //$Category "Ammunition/Spawners"
-  //$Sprite "AMMOA0"
-  //$Color 14
+	Default
+	{
+	+INVISIBLE 
+	//$Category "Ammunition/Spawners"
+	//$Sprite "AMMOA0"
+	//$Color 14
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 1 A_Look();
+		Loop;
+	}
+}
+
+class CellSpot : MapSpot
+{
+	Default
+	{
+	+INVISIBLE 
+	//$Category "Ammunition/Spawners"
+	//$Sprite "CELPA0"
+	//$Color 14
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 1 A_Look();
+		Loop;
+	}
+}
+
+class HealthSpot : MapSpot
+{
+	Default
+	{
+	+INVISIBLE 
+	//$Category "Health and Armor/Spawners"
+	//$Sprite "MEDIA0"
+	//$Color 14
 	}
 	States
 	{

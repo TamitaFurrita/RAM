@@ -1,0 +1,47 @@
+DEFAULTLISTMENU
+{
+	Selector "", 0, 0
+	Font "SMALLFONT", "Black", "White"
+	LineSpacing 18
+}
+
+LISTMENU "MainMenu"
+{
+	Size Clean
+	Size 480, 270
+	
+	StaticPatch 269, 200, "M_DOOM"
+	
+	Position 25,180
+	TextItem "New Game", "n", "Disclaimer"
+	TextItem "Load Game", "l", "LoadGameMenu"
+	TextItem "Save Game", "s", "SaveGameMenu"
+	TextItem "Options","o", "OptionsMenu"
+	TextItem "Quit Game", "q", "QuitMenu"
+}
+
+LISTMENU "Disclaimer"
+{
+	Size Clean
+	Size 480, 270
+	
+	StaticTextCentered 240.0, 124.0, "Distribution of this build is strictly prohibited.", "White"
+	StaticTextCentered 240.0, 132.0, "Do you agree to these terms?", "White"
+	
+	LineSpacing 8
+	Position 224, 156
+	TextItem "Yes", "y", "EpisodeMenu"
+	TextItem "No", "n", "Oop"
+}
+
+LISTMENU "Oop"
+{
+	Size Clean
+	Size 384, 216
+	
+	StaticTextCentered 192.0, 100.0, "turned around and went down", "Black"
+	StaticTextCentered 192.0, 118.0, "to met shadow monster", "Black"
+	
+	Position 192, 136
+	TextItem "Yes", "y", "MainMenu"
+}
