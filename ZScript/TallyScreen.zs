@@ -114,27 +114,39 @@ class BunnyStatusScreen : DoomStatusScreen
 		}
 	}
 	
+	override void drawEL ()
+	{
+		Font textFont = "BigUpper";
+		int tcolor = Font.CR_RED;
+		String LevelName = lnametexts[1];
+		
+		Screen.DrawTexture(TexMan.CheckForTexture("INTERPIC"), false, 0, 0, DTA_Fullscreen, true, DTA_FullScreenScale, FSMode_ScaleToScreen);
+		Screen.DrawText(textFont, Font.CR_RED, 160 - ((textFont.StringWidth("Entering") / 2) * 1.2), 80, "Entering", DTA_320x200, 1, DTA_ScaleX, 1.2);
+		Screen.DrawText(textFont, Font.CR_GREY, 160 - ((textFont.StringWidth(LevelName) / 2) * 1.2), 100, LevelName, DTA_320x200, 1, DTA_ScaleX, 1.2);
+	}
+	
 	override void drawStats (void)
 	{
-		// line height
-		int lh = IntermissionFont.GetHeight() * 3 / 2;
+		Screen.DrawTexture(TexMan.CheckForTexture("INTERPIC"), false, 0, 0, DTA_Fullscreen, true, DTA_FullScreenScale, FSMode_ScaleToScreen);
 		
 		string CoolStrings[3] = { 
 		"You are DOOM!", 
 		"Rip and tear!", 
 		"They're done!" };
 		
-		drawLF();
-
+		String LevelName = lnametexts[0];
 		Font textFont = "BigUpper";
 		int tcolor = Font.CR_RED;
 
+		Screen.DrawText(textFont, Font.CR_RED, 160 - ((textFont.StringWidth("Exiting") / 2) * 1.2), 4, "Exiting", DTA_320x200, 1, DTA_ScaleX, 1.2);
+		Screen.DrawText(textFont, Font.CR_GREY, 160 - ((textFont.StringWidth(LevelName) / 2) * 1.2), 20, LevelName, DTA_320x200, 1, DTA_ScaleX, 1.2);
+		
 		Screen.DrawText (textFont, tcolor, 8, 65, "Kills", DTA_320x200, 1);
 		Screen.DrawText (textFont, tcolor, 8, 115, "Secrets", DTA_320x200, 1);
 
 		if (sp_state >= 2)
 		{
-			Screen.DrawText (textFont, tcolor, 300, 65, ""..max(0, cnt_kills[0]), DTA_320x200, 1, DTA_ScaleX, 1.2);
+			Screen.DrawText (textFont, tcolor, 315 - (textFont.StringWidth(String.Format("%d", cnt_kills[0])) * 1.2), 65, ""..max(0, cnt_kills[0]), DTA_320x200, 1, DTA_ScaleX, 1.2);
 		}
 		if (sp_state >= 4)
 		{
@@ -142,7 +154,7 @@ class BunnyStatusScreen : DoomStatusScreen
 		}
 		if (sp_state >= 6)
 		{
-			Screen.DrawText (textFont, tcolor, 300, 115, ""..max(0, cnt_secret[0]), DTA_320x200, 1, DTA_ScaleX, 1.2);
+			Screen.DrawText (textFont, tcolor, 315 - (textFont.StringWidth(String.Format("%d", cnt_secret[0])) * 1.2), 115, ""..max(0, cnt_secret[0]), DTA_320x200, 1, DTA_ScaleX, 1.2);
 		}
 		if (sp_state >= 8)
 		{
@@ -150,12 +162,14 @@ class BunnyStatusScreen : DoomStatusScreen
 		
 		int t = cnt_time;
 		int hours = t / 3600;
-		t -= hours * 3600;
+		t = t % 3600;
 		int minutes = t / 60;
-		t -= minutes * 60;
-		int seconds = t;
+		int seconds = t % 60;
+		
+		String timeStr;
+		timeStr = String.Format("%02d:%02d:%02d", hours, minutes, seconds);
 
-		Screen.DrawText (textFont, tcolor, 300, 160, "Placeholder", DTA_320x200, 1, DTA_ScaleX, 1.2);
+		Screen.DrawText (textFont, tcolor, 315 - (textFont.StringWidth(timeStr) * 1.2), 160, timeStr, DTA_320x200, 1, DTA_ScaleX, 1.2);
 		}
 	}
 }
