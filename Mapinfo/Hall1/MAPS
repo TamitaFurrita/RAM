@@ -33,9 +33,9 @@ map U1M8 "Anomaly on Phobos"
 	LevelNum = 3
 }
 
-map MAPU1 "Hell on Earth"
+map MAPU1 "HELL ON EARTH"
 {
-	label = "DOOM 2"
+	label = "GODONLYKNOWS"
 	music = "D_MAPU1"
 	Sky1 = "HELLSKY"
 

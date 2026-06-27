@@ -76,6 +76,12 @@ class B33Handler : EventHandler
 		
 		while (mo = MapSpot(SpotPoker.Next()))
 		{
+			if(mo.GetClass() == "HealthSpot" && random(0, 7000) == 1 && !(mo.master)) {
+				mo.A_SpawnItemEx(healthes[RandomMemberOfArray(3)], flags:SXF_ISMASTER);
+				mo.A_SpawnItemEx("ItemFog");
+				mo.A_PlaySound("misc/spawn", CHAN_VOICE);
+			}
+			
 			if(mo.target && mo.target.Player && !(mo.CheckIfInTargetLOS() && mo.CheckIfTargetInLOS()))
 			{
 				if(mo.GetClass() == "ZombieSpot" && random(0, 7000) == 1) {
@@ -97,22 +103,26 @@ class B33Handler : EventHandler
 					{
 					if(mo.GetClass() == "ShellSpot" && (hasShotgun || hasSSG) && random(0, 7000) == 1) {
 						mo.A_SpawnItemEx(shells[RandomMemberOfArray(2)], flags:SXF_ISMASTER);
-						if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("ItemFog");
+						if(mo.target && mo.Distance3D(mo.target) < 256) {
+							mo.A_SpawnItemEx("ItemFog");
+							mo.A_PlaySound("misc/spawn", CHAN_VOICE);
+							}
 						}
 					
 					if(mo.GetClass() == "AmmoSpot" && random(0, 7000) == 1) {
 						mo.A_SpawnItemEx(ammoes[RandomMemberOfArray(2)], flags:SXF_ISMASTER);
-						if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("ItemFog");
+						if(mo.target && mo.Distance3D(mo.target) < 256) {
+							mo.A_SpawnItemEx("ItemFog");
+							mo.A_PlaySound("misc/spawn", CHAN_VOICE);
+							}
 						}
 
 					if(mo.GetClass() == "CellSpot" && (hasPlasmaRifle || hasBFG) && random(0, 7000) == 1) {
 						mo.A_SpawnItemEx(celles[RandomMemberOfArray(2)], flags:SXF_ISMASTER);
-						if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("ItemFog");
-						}
-					
-					if(mo.GetClass() == "HealthSpot" && random(0, 7000) == 1) {
-						mo.A_SpawnItemEx(healthes[RandomMemberOfArray(3)], flags:SXF_ISMASTER);
-						if(mo.target && mo.Distance3D(mo.target) < 256) mo.A_SpawnItemEx("ItemFog");
+						if(mo.target && mo.Distance3D(mo.target) < 256) {
+							mo.A_SpawnItemEx("ItemFog");
+							mo.A_PlaySound("misc/spawn", CHAN_VOICE);
+							}
 						}
 					}
 			}

@@ -1,0 +1,26 @@
+:HereticDoorOpen
+	play		doors/dr3_open
+	nostopcutoff
+end
+
+:HereticMove
+	playrepeat		doors/dr3_move
+end
+
+:HereticDoorClose
+	play		doors/dr3_open
+	stopsound	doors/dr3_clos
+end
+
+:HereticPlatform
+	play		floors/fl2_start
+	playrepeat	doors/dr3_move
+	stopsound	floors/fl2_stop
+end
+
+[HereticDoor
+	0		HereticDoorOpen
+	1		HereticDoorClose
+	2		HereticDoorOpen
+	3		HereticDoorClose
+]

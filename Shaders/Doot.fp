@@ -34,7 +34,7 @@ vec4 ProcessTexel()
     float n = noise(
         vec2(
             uv.x * 4.0,
-            uv.y * 6.0 - timer * 2.0
+            uv.y * 6.0 - timer * 2
         )
     );
 

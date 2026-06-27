@@ -2,3 +2,10 @@ spooks/drone	DRONE
 spooks/breathe	BREATH
 
 $musicvolume Music/D_MAPU1 0.6
+
+doors/dr3_open			DOROPN3
+doors/dr3_clos			DORCLS3
+doors/dr3_move			DORMOV3
+
+floors/fl2_start		P2START
+floors/fl2_stop			P2STOP

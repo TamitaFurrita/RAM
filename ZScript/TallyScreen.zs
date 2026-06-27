@@ -147,7 +147,15 @@ class BunnyStatusScreen : DoomStatusScreen
 		if (sp_state >= 8)
 		{
 		Screen.DrawText (textFont, tcolor, 8, 160, "Time", DTA_320x200, 1);
-		Screen.DrawText (textFont, tcolor, 300, 160, ""..cnt_time, DTA_320x200, 1, DTA_ScaleX, 1.2);
+		
+		int t = cnt_time;
+		int hours = t / 3600;
+		t -= hours * 3600;
+		int minutes = t / 60;
+		t -= minutes * 60;
+		int seconds = t;
+
+		Screen.DrawText (textFont, tcolor, 300, 160, "Placeholder", DTA_320x200, 1, DTA_ScaleX, 1.2);
 		}
 	}
 }
