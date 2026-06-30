@@ -16,6 +16,10 @@ class B33Handler : EventHandler
 			"DoomImp", "DoomBrute", "HellKnight", "BaronOfHell"
 		};
 		
+		string fliers[2] = {
+			"LostSoul", "Cacodemon"
+		};
+		
 		string pinkies[2] = {
 			"Demon", "Spectre"
 		};

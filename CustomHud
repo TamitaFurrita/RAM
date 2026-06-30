@@ -14,7 +14,12 @@ class CustomStatusBar : DoomStatusBar
 		
 		if(automapactive) {
 			SetSize(0, 320, 200);
-			DrawString(SmolFont, "\cj"..Level.info.MapLabel..": \cg"..Level.Levelname, (160, 187), DI_TEXT_ALIGN_CENTER, scale: (1, TextScaling));
+			String levelStr;
+			
+			if(Level.info.MapLabel) levelStr = "\cj"..Level.info.MapLabel..": \cg"..Level.Levelname;
+			else levelStr = "\cg"..Level.Levelname;
+			
+			DrawString(SmolFont, levelStr, (160, 187), DI_TEXT_ALIGN_CENTER, scale: (1, TextScaling));
 			DrawString(SmolFont, "Enemies: "..level.total_monsters - level.killed_monsters, (160, 194), DI_TEXT_ALIGN_CENTER, scale: (1, TextScaling));
 			return;
 		}

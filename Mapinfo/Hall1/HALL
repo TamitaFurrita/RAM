@@ -5,12 +5,11 @@ DefaultMap
 	Cluster = 1
 }
 
-map HALL01 "U1M9"
+map HALL01 "Military Base"
 {
-	label = "Military Prison"
+	label = "E1M9"
 	music = "D_HALL01"
 	Sky1 = "D1SKY1"
 	
 	LevelNum = 501
-	NoIntermission
 }

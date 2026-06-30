@@ -35,11 +35,28 @@ map U1M8 "Anomaly on Phobos"
 
 map MAPU1 "HELL ON EARTH"
 {
-	label = "GODONLYKNOWS"
 	music = "D_MAPU1"
 	Sky1 = "HELLSKY"
 
 	LevelNum = 4
+}
+
+map MAPU2 "The Sewers"
+{
+	label = "MAPU2"
+	music = "D_MAPU2"
+	Sky1 = "SKY1"
+	
+	LevelNum = 5
+}
+
+map MAPU3 "The Gauntlet"
+{
+	label = "MAPU3"
+	music = "D_MAPU3"
+	Sky1 = "SKY1"
+
+	LevelNum = 6
 }
 
 map UF1M1 "author = $WS_AU_ROMERO"
@@ -51,20 +68,18 @@ map UF1M1 "author = $WS_AU_ROMERO"
 	LevelNum = 11
 }
 
-map CARDTEST ""
+map CARDTEST "CARDTEST"
 {
-	label = "CARDTEST"
 	music = "D_RUNNIN"
-	Sky1 = "Sky1"
+	Sky1 = "SKY1"
 	
 	LevelNum = 12
 }
 
 map DEMOMAP "Laboratory"
 {
-	label = "E1M1"
 	music = "D_DEMO"
-	Sky1 = "Sky1"
+	Sky1 = "SKY1"
 	
 	LevelNum = 13
 }

@@ -12,15 +12,22 @@ map HUB01 "Military Prison"
 	Sky1 = "D1SKY1"
 
 	LevelNum = 101
-	NoIntermission
 }
 
-map HUB02 "author = $WS_AUTHOR"
+map HUB02 "author = $WS_AUTHOR" // Unfinished hub
 {
 	label = "UF"
 	music = "D_UF1M1"
 	Sky1 = "D1SKY1"
 
 	LevelNum = 102
-	NoIntermission
+}
+
+map HUB03 "Refueling Base"
+{
+	label = "U1M12"
+	music = "D_HUB03"
+	Sky1 = "SKY1"
+	
+	LevelNum = 103
 }
